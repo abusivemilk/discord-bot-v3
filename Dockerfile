@@ -1,4 +1,4 @@
-FROM golang:1.18 AS build
+FROM golang:1.18.8-alpine3.16 AS build
 WORKDIR /go/src/github.com/VATUSA/discord-bot-v3
 COPY go.mod ./
 COPY go.sum ./
@@ -11,8 +11,9 @@ RUN go build -o bin/web ./cmd/web/main.go
 FROM alpine:latest AS bot
 WORKDIR /app
 COPY --from=build /go/src/github.com/VATUSA/discord-bot-v3/bin/bot ./
+RUN chmod +x ./bot
 COPY config ./config
-CMD ["./bot"]
+CMD ["/bin/sh"]
 
 FROM alpine:latest AS web
 WORKDIR /app
