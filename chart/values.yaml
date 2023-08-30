@@ -80,3 +80,6 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+vatusa:
+  api_v2_url: https://api.vatusa.net/v2

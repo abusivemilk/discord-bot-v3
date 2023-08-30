@@ -33,6 +33,14 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: DISCORD_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: discord-bot
+                  key: token
+            - name: VATUSA_API2_URL
+              value: {{ .Values.vatusa.api_v2_url }}
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
