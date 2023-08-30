@@ -13,7 +13,7 @@ WORKDIR /app
 COPY --from=build /go/src/github.com/VATUSA/discord-bot-v3/bin/bot ./
 RUN chmod +x ./bot
 COPY config ./config
-CMD ["/bin/sh"]
+CMD ["./bot"]
 
 FROM alpine:latest AS web
 WORKDIR /app
