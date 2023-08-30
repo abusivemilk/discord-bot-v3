@@ -81,6 +81,9 @@ roles:
       - conditions:
           - type: rating
             value: SUP
+  - id: 1146314206153551922
+    name: Administrator
+    criteria:
       - conditions:
           - type: rating
             value: ADM
