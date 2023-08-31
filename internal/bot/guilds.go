@@ -27,3 +27,19 @@ func ProcessAllGuilds(s *discordgo.Session) {
 		}
 	}
 }
+
+func ProcessMemberInGuilds(s *discordgo.Session, id string) {
+	for _, guild := range s.State.Guilds {
+		cfg := config.GetServerConfig(guild.ID)
+		if cfg != nil && cfg.Active {
+			member, err := s.GuildMember(guild.ID, id)
+			if err != nil {
+				continue
+			}
+			err = ProcessMember(s, member, cfg)
+			if err != nil {
+				log.Printf("Error in ProcessMember %s: %s", member.User.ID, err.Error())
+			}
+		}
+	}
+}

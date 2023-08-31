@@ -27,6 +27,9 @@ func SyncName(s *discordgo.Session, m *discordgo.Member, c *api2.ControllerData,
 	if err != nil {
 		return err
 	}
+	if name == "" {
+		return nil
+	}
 	title, err := CalculateTitle(c, cfg)
 	if err != nil {
 		return nil
@@ -57,6 +60,8 @@ func SyncName(s *discordgo.Session, m *discordgo.Member, c *api2.ControllerData,
 
 func CalculateName(c *api2.ControllerData, cfg *config.ServerConfig) (string, error) {
 	switch cfg.NameFormatType {
+	case constants.NameFormat_None:
+		return "", nil
 	case constants.NameFormat_FirstLast:
 		return fmt.Sprintf("%s %s", c.FirstName, c.LastName), nil
 	case constants.NameFormat_FirstL:
@@ -76,6 +81,8 @@ func CalculateTitle(c *api2.ControllerData, cfg *config.ServerConfig) (string, e
 		return "", nil // TODO
 	case constants.Title_None:
 		return "", nil
+	case constants.Title_Rating:
+		return c.RatingShort, nil
 	default:
 		return "", errors.New("invalid TitleFormat")
 	}

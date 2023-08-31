@@ -29,6 +29,7 @@ func Run() {
 	session.AddHandler(func(s *discordgo.Session, r *discordgo.Ready) {
 		log.Printf("Logged in as: %v#%v", s.State.User.Username, s.State.User.Discriminator)
 		go IntervalRefreshAll(s)
+		go QueueListen(s)
 	})
 
 	// TODO: Add hook for GuildMemberAdd to automatically trigger roles for that member.
