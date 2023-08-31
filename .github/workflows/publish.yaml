@@ -58,3 +58,20 @@ jobs:
           target: web
           tags: ${{ steps.meta_web.outputs.tags }}
           labels: ${{ steps.meta_web.outputs.labels }}
+
+      - name: GitHub Tag Name example
+        run: |
+          echo "Tag name from GITHUB_REF_NAME: $GITHUB_REF_NAME"
+          echo "Tag name from github.ref_name: ${{  github.ref_name }}"
+
+      - name: Update Helm Chart Version
+        uses: jacobtomlinson/gha-find-replace@v3
+        with:
+          find: 'appVersion: ".*"'
+          replace: 'appVersion: "${{ github.ref_name }}"'
+          include: "chart/Chart.yaml"
+          regex: true
+
+      - name: Debug Helm Chart
+        run: |
+          cat chart/Chart.yaml
