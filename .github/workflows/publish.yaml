@@ -89,5 +89,5 @@ jobs:
           git config user.email "<>"
           git tag -f release ${{ steps.auto_commit.outputs.commit_hash }}
           git tag -f ${{ github.ref_name }} ${{ steps.auto_commit.outputs.commit_hash }}
-          git push origin release
-          git push origin ${{ github.ref_name }}
+          git push origin release -f
+          git push origin ${{ github.ref_name }} -f
