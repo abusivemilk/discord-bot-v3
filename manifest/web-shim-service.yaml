@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: discord-bot-v3-web-shim
+spec:
+  selector:
+    app: discord-bot-v3-web-shim
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 9002
+  type: ClusterIP
+  
