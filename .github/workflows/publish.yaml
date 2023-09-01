@@ -80,8 +80,8 @@ jobs:
       - name: Update kustomization Version
         uses: jacobtomlinson/gha-find-replace@v3
         with:
-          find: '  newTag: "1.0.4"'
-          replace: '    newTag: "${{ github.ref_name }}"'
+          find: 'newTag: "1.0.4"'
+          replace: 'newTag: "${{ github.ref_name }}"'
           include: "manifest/kustomization.yaml"
           regex: true
 
