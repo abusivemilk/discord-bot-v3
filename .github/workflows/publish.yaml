@@ -85,7 +85,6 @@ jobs:
 
       - name: Update Tags
         run: |
-          git tag -d release
           git tag release ${{ steps.auto_commit.outputs.commit_hash }}
           git tag ${{ github.ref_name }} ${{ steps.auto_commit.outputs.commit_hash }}
           git push origin --tags
