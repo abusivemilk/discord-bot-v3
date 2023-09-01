@@ -4,6 +4,6 @@ resources:
 
 images:
   - name: vatusa/discord-bot-v3
-    newTag: "1.0.16"
+    newTag: "1.0.17"
   - name: vatusa/discord-bot-v3-web-shim
-    newTag: "1.0.16"
+    newTag: "1.0.17"
