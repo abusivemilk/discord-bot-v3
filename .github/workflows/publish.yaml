@@ -84,18 +84,10 @@ jobs:
           branch: main
 
       - name: Update Tags
-        uses: actions/github-script@v5
-        with:
-          script: |
-            github.rest.git.createRef({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              ref: 'refs/tags/release',
-              sha: '${{ steps.auto_commit.outputs.commit_hash }}'
-            })
-            github.rest.git.createRef({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              ref: 'refs/tags/${{ github.ref_name }}',
-              sha: '${{ steps.auto_commit.outputs.commit_hash }}'
-            })
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+          git tag -d release
+          git tag release ${{ steps.auto_commit.outputs.commit_hash }}
+          git tag ${{ github.ref_name }} ${{ steps.auto_commit.outputs.commit_hash }}
+          git push origin --tags
