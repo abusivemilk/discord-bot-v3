@@ -87,6 +87,7 @@ jobs:
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
-          git tag -af release ${{ steps.auto_commit.outputs.commit_hash }}
-          git tag -af ${{ github.ref_name }} ${{ steps.auto_commit.outputs.commit_hash }}
-          git push origin --tags
+          git tag -f release ${{ steps.auto_commit.outputs.commit_hash }}
+          git tag -f ${{ github.ref_name }} ${{ steps.auto_commit.outputs.commit_hash }}
+          git push origin release
+          git push origin ${{ github.ref_name }}
