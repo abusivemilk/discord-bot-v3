@@ -94,6 +94,13 @@ jobs:
         with:
           branch: main
 
+      - name: Update Existing Tag
+        uses: richardsimko/update-tag@v1
+        with:
+          tag_name: ${{ github.ref_name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Update Release Tag
         uses: richardsimko/update-tag@v1
         with:
