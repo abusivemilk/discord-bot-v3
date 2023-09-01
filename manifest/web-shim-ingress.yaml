@@ -18,6 +18,6 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: discord-bot-web-shim
+                name: discord-bot-v3-web-shim
                 port:
                   number: 9002
