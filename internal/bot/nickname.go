@@ -3,7 +3,6 @@ package bot
 import (
 	"errors"
 	"fmt"
-	"github.com/VATUSA/discord-bot-v3/internal/config"
 	"github.com/VATUSA/discord-bot-v3/internal/integration/api2"
 	"github.com/VATUSA/discord-bot-v3/pkg/constants"
 	"github.com/bwmarrin/discordgo"
@@ -12,7 +11,7 @@ import (
 	"strings"
 )
 
-func SyncName(s *discordgo.Session, m *discordgo.Member, c *api2.ControllerData, cfg *config.ServerConfig) error {
+func SyncName(s *discordgo.Session, m *discordgo.Member, c *api2.ControllerData, cfg *ServerConfig) error {
 	if c == nil {
 		if m.Nick != "" {
 			log.Printf("Nickname Removed %s for ID %s", m.Nick, m.User.ID)
@@ -58,7 +57,7 @@ func SyncName(s *discordgo.Session, m *discordgo.Member, c *api2.ControllerData,
 	return nil
 }
 
-func CalculateName(c *api2.ControllerData, cfg *config.ServerConfig) (string, error) {
+func CalculateName(c *api2.ControllerData, cfg *ServerConfig) (string, error) {
 	switch cfg.NameFormatType {
 	case constants.NameFormat_None:
 		return "", nil
@@ -73,7 +72,7 @@ func CalculateName(c *api2.ControllerData, cfg *config.ServerConfig) (string, er
 	}
 }
 
-func CalculateTitle(c *api2.ControllerData, cfg *config.ServerConfig) (string, error) {
+func CalculateTitle(c *api2.ControllerData, cfg *ServerConfig) (string, error) {
 	switch cfg.TitleType {
 	case constants.Title_Division:
 		return CalculateDivisionTitle(c, cfg), nil
@@ -88,7 +87,7 @@ func CalculateTitle(c *api2.ControllerData, cfg *config.ServerConfig) (string, e
 	}
 }
 
-func CalculateDivisionTitle(c *api2.ControllerData, cfg *config.ServerConfig) string {
+func CalculateDivisionTitle(c *api2.ControllerData, cfg *ServerConfig) string {
 	for _, r := range c.Roles {
 		if strings.HasPrefix(r.Role, "US") {
 			re := regexp.MustCompile("[0-9]+")

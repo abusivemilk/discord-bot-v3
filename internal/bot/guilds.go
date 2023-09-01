@@ -1,7 +1,6 @@
 package bot
 
 import (
-	"github.com/VATUSA/discord-bot-v3/internal/config"
 	"github.com/bwmarrin/discordgo"
 	"log"
 	"time"
@@ -17,7 +16,7 @@ func IntervalRefreshAll(s *discordgo.Session) {
 
 func ProcessAllGuilds(s *discordgo.Session) {
 	for _, guild := range s.State.Guilds {
-		cfg := config.GetServerConfig(guild.ID)
+		cfg := GetServerConfig(guild.ID)
 		if cfg != nil && cfg.Active {
 			err := RequestGuildMembers(s, guild, cfg)
 			if err != nil {
@@ -30,7 +29,7 @@ func ProcessAllGuilds(s *discordgo.Session) {
 
 func ProcessMemberInGuilds(s *discordgo.Session, id string) {
 	for _, guild := range s.State.Guilds {
-		cfg := config.GetServerConfig(guild.ID)
+		cfg := GetServerConfig(guild.ID)
 		if cfg != nil && cfg.Active {
 			member, err := s.GuildMember(guild.ID, id)
 			if err != nil {

@@ -2,7 +2,6 @@ package bot
 
 import (
 	"fmt"
-	"github.com/VATUSA/discord-bot-v3/internal/config"
 	"github.com/VATUSA/discord-bot-v3/internal/integration/api2"
 	"github.com/VATUSA/discord-bot-v3/pkg/constants"
 	"github.com/bwmarrin/discordgo"
@@ -12,7 +11,7 @@ import (
 	"strings"
 )
 
-func SyncRoles(s *discordgo.Session, m *discordgo.Member, c *api2.ControllerData, cfg *config.ServerConfig) error {
+func SyncRoles(s *discordgo.Session, m *discordgo.Member, c *api2.ControllerData, cfg *ServerConfig) error {
 	for _, role := range cfg.Roles {
 		assigned := false
 		roleDisplay := role.ID
@@ -45,7 +44,7 @@ func SyncRoles(s *discordgo.Session, m *discordgo.Member, c *api2.ControllerData
 	return nil
 }
 
-func checkCriteria(c *api2.ControllerData, criteria *config.CriteriaConfig) bool {
+func checkCriteria(c *api2.ControllerData, criteria *CriteriaConfig) bool {
 	if c == nil {
 		return false
 	}
