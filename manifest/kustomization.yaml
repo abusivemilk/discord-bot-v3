@@ -1,5 +1,6 @@
 resources:
   - discord-bot-v3.yaml
+  - discord-bot-v3-web-shim.yaml
 
 images:
   - name: vatusa/discord-bot-v3
