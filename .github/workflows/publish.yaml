@@ -79,19 +79,13 @@ jobs:
 
       # Commit all changed files back to the repository
       - uses: stefanzweifel/git-auto-commit-action@v4
+        id: auto_commit
         with:
           branch: main
 
-      - name: Update Existing Tag
-        uses: richardsimko/update-tag@v1
-        with:
-          tag_name: ${{ github.ref_name }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Update Release Tag
-        uses: richardsimko/update-tag@v1
-        with:
-          tag_name: release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Update Tags
+        run: |
+          git tag -d release
+          git tag release ${{ steps.auto_commit.outputs.commit_hash }}
+          git tag ${{ github.ref_name }} ${{ steps.auto_commit.outputs.commit_hash }}
+          git push origin --tags
