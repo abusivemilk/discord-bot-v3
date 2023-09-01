@@ -20,4 +20,4 @@ spec:
               service:
                 name: discord-bot-web-shim
                 port:
-                  number: 80
+                  number: 9002
