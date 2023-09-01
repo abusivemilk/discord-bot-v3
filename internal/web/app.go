@@ -10,6 +10,7 @@ func App() *echo.Echo {
 
 	// API routes
 	e.GET("/assignRoles/:id", assignRoles)
+	e.POST("/assignRoles/:id", assignRoles)
 
 	return e
 }
