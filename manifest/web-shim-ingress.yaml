@@ -19,3 +19,5 @@ spec:
             backend:
               service:
                 name: discord-bot-web-shim
+                port:
+                  number: 80
