@@ -91,11 +91,11 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               ref: 'refs/tags/release',
-              sha: ${{ steps.auto_commit.outputs.commit_hash }}
+              sha: '${{ steps.auto_commit.outputs.commit_hash }}'
             })
             github.rest.git.createRef({
               owner: context.repo.owner,
               repo: context.repo.repo,
               ref: 'refs/tags/${{ github.ref_name }}',
-              sha: ${{ steps.auto_commit.outputs.commit_hash }}
+              sha: '${{ steps.auto_commit.outputs.commit_hash }}'
             })
