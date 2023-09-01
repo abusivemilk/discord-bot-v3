@@ -84,7 +84,18 @@ jobs:
           branch: main
 
       - name: Update Tags
-        run: |
-          git tag -af release ${{ steps.auto_commit.outputs.commit_hash }}
-          git tag -af ${{ github.ref_name }} ${{ steps.auto_commit.outputs.commit_hash }}
-          git push origin --tags
+        uses: actions/github-script@v5
+        with:
+          script: |
+            github.rest.git.createRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: 'refs/tags/release',
+              sha: ${{ steps.auto_commit.outputs.commit_hash }}
+            })
+            github.rest.git.createRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: 'refs/tags/${{ github.ref_name }}',
+              sha: ${{ steps.auto_commit.outputs.commit_hash }}
+            })
