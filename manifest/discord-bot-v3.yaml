@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: discord-bot-v3
+  labels:
+    app: discord-bot-v3
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: discord-bot-v3
+  template:
+    metadata:
+      name: discord-bot-v3
+      labels:
+        app: discord-bot-v3
+    spec:
+      containers:
+        - name: discord-bot-v3
+          image: vatusa/discord-bot-v3
+          imagePullPolicy: IfNotPresent
+          envFrom:
+            - secretRef:
+                name: discord-bot
+      restartPolicy: Always
+      

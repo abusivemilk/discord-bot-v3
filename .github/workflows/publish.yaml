@@ -77,6 +77,18 @@ jobs:
         run: |
           cat chart/Chart.yaml
 
+      - name: Update kustomization Version
+        uses: jacobtomlinson/gha-find-replace@v3
+        with:
+          find: '  newTag: "1.0.4"'
+          replace: '    newTag: "${{ github.ref_name }}"'
+          include: "manifest/kustomization.yaml"
+          regex: true
+
+      - name: Debug kustomization
+        run: |
+          cat manifest/kustomization.yaml
+
       # Commit all changed files back to the repository
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
