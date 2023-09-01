@@ -65,18 +65,6 @@ jobs:
           tags: ${{ steps.meta_web.outputs.tags }}
           labels: ${{ steps.meta_web.outputs.labels }}
 
-      - name: Update Helm Chart Version
-        uses: jacobtomlinson/gha-find-replace@v3
-        with:
-          find: 'appVersion: ".*"'
-          replace: 'appVersion: "${{ github.ref_name }}"'
-          include: "chart/Chart.yaml"
-          regex: true
-
-      - name: Debug Helm Chart
-        run: |
-          cat chart/Chart.yaml
-
       - name: Update kustomization Version
         uses: jacobtomlinson/gha-find-replace@v3
         with:
