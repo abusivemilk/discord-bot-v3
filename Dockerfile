@@ -11,7 +11,6 @@ RUN go build -o bin/web ./cmd/web/main.go
 FROM alpine:latest AS bot
 WORKDIR /app
 COPY --from=build /go/src/github.com/VATUSA/discord-bot-v3/bin/bot ./
-RUN chmod +x ./bot
 COPY config ./config
 CMD ["./bot"]
 
