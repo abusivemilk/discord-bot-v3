@@ -50,4 +50,5 @@ func QueueListen(s *discordgo.Session) {
 
 	log.Print("Connected to RabbitMQ. Waiting for messages...")
 	<-forever
+	log.Print("Stopped processing RabbitMQ.")
 }
