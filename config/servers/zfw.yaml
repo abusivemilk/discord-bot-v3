@@ -12,64 +12,48 @@ roles:
       - conditions:
           - type: rating
             value: OBS
-          - type: home_or_visit
-            value: ZFW
   - id: 767831019826446377
     name: Student 1
     criteria:
       - conditions:
           - type: rating
             value: S1
-          - type: home_or_visit
-            value: ZFW
   - id: 767831019242913792
     name: Student 2
     criteria:
       - conditions:
           - type: rating
             value: S2
-          - type: home_or_visit
-            value: ZFW
   - id: 767831018748510208
     name: Student 3
     criteria:
       - conditions:
           - type: rating
             value: S3
-          - type: home_or_visit
-            value: ZFW
   - id: 767831018089742367
     name: Controller 1
     criteria:
       - conditions:
           - type: rating
             value: C1
-          - type: home_or_visit
-            value: ZFW
   - id: 767831017322840105
     name: Controller 3
     criteria:
       - conditions:
           - type: rating
             value: C3
-          - type: home_or_visit
-            value: ZFW
   - id: 767831775375392838
     name: Instructor 1
     criteria:
       - conditions:
           - type: rating
             value: I1
-          - type: home_or_visit
-            value: ZFW
   - id: 767831774411227156
     name: Instructor 3
     criteria:
       - conditions:
           - type: rating
             value: I3
-          - type: home_or_visit
-            value: ZFW
   - id: 767831016562884659
     name: Supervisor
     criteria:
