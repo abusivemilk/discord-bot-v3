@@ -4,7 +4,7 @@ active: true
 description: vATCSCC Discord Server
 facility: ALL
 name_format_type: first_last
-title_type: none
+title_type: division
 roles:
   - id: 358266819422978048
     name: Facility Event Staff
