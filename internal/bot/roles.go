@@ -65,6 +65,8 @@ func checkCondition(c *api2.ControllerData, condType constants.ConditionType, va
 		return true
 	case constants.Condition_InDivision:
 		return *value == "true" == c.FlagHomeController
+	case constants.Condition_DivisionVisitor:
+		return *value == "true" == (len(c.VisitingFacilities) > 0)
 	case constants.Condition_HomeFacility:
 		return c.Facility == *value
 	case constants.Condition_VisitFacility:

@@ -41,15 +41,16 @@ rating: Short Rating (i.e. OBS or S3)
 
 condition_type options
 
-| type           | value                              | description                                                                                   |
-|----------------|------------------------------------|-----------------------------------------------------------------------------------------------|
-| in_division    | true/false                         | Is the user in the VATUSA Division                                                            |
-| home           | facility ID                        | Is the user on the home roster of the specified facility                                      |
-| visit          | facility ID                        | Is the user on the visitor roster of the specified facility                                   |
-| home_or_visit  | facility ID                        | Is the user on the home or visitor roster of the specified facility                           |
-| rating         | rating short (i.e. OBS, S3, I1)    | Does the user have the specified rating                                                       | 
-| role           | role ID                            | Does the user have the specified role (at any facility)                                       |
-| all            | n/a                                | True for any user who has a verified discord ID                                               |
-| division_staff | n/a                                | Is the user VATUSA Division Staff USA##                                                       |
-| facility_staff | facility ID                        | Does the user have a facility staff role at the specified facility (ATM, DATM, TA, EC, FE, WM |
-| facility_role  | facility id : role (i.e "ZZZ:ATM") | Does the user have the specified role at the specified facility                               |
+| type             | value                              | description                                                                                   |
+|------------------|------------------------------------|-----------------------------------------------------------------------------------------------|
+| in_division      | true/false                         | Is the user in the VATUSA Division                                                            |
+| division_visitor | true/false                         | Does the user visit any VATUSA subdivision                                                    |
+| home             | facility ID                        | Is the user on the home roster of the specified facility                                      |
+| visit            | facility ID                        | Is the user on the visitor roster of the specified facility                                   |
+| home_or_visit    | facility ID                        | Is the user on the home or visitor roster of the specified facility                           |
+| rating           | rating short (i.e. OBS, S3, I1)    | Does the user have the specified rating                                                       | 
+| role             | role ID                            | Does the user have the specified role (at any facility)                                       |
+| all              | n/a                                | True for any user who has a verified discord ID                                               |
+| division_staff   | n/a                                | Is the user VATUSA Division Staff USA##                                                       |
+| facility_staff   | facility ID                        | Does the user have a facility staff role at the specified facility (ATM, DATM, TA, EC, FE, WM |
+| facility_role    | facility id : role (i.e "ZZZ:ATM") | Does the user have the specified role at the specified facility                               |
