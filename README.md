@@ -35,7 +35,7 @@ title_type options
 ```yaml
 none: Do not append any title
 division: Will use the same title formatting as the official server (i.e. ZZZ EC or ZZZ S3)
-local: Title from facility set above (i.e. ATM or EC)
+local: Similar to division, but omits the facility if it matches the server's facility.
 rating: Short Rating (i.e. OBS or S3)
 ```
 
