@@ -6,44 +6,6 @@ facility: ZAB
 name_format_type: first_last
 title_type: local
 roles:
-  - id: 858072998657654806
-    name: Events Team
-    criteria:
-      - conditions:
-        - type: facility_role
-          value: ZAB:EC
-  - id: 506655345570218011
-    name: Tech Team
-    criteria:
-      - conditions:
-        - type: facility_role
-          value: ZAB:WM
-        - type: facility_role
-          value: ZAB:FE
-  - id: 984581750078455808
-    name: Facilities Team
-    criteria:
-      - conditions:
-        - type: facility_role
-          value: ZAB:FE
-  - id: 984581967184031765
-    name: Web Team
-    criteria:
-      - conditions:
-        - type: facility_role
-          value: ZAB:WM
-  - id: 506655375349776398
-    name: Training Team
-    criteria:
-      - conditions:
-        - type: facility_role
-          value: ZAB:TA
-      - conditions:
-        - type: facility_role
-          value: ZAB:INS
-      - conditions:
-        - type: facility_role
-          value: ZAB:MTR
   - id: 506654977838809088
     name: Air Traffic Manager
     criteria:
@@ -96,6 +58,12 @@ roles:
           value: I1
         - type: home
           value: ZAB
+      - conditions:
+        - type: facility_role
+          value: ZAB:TA
+      - conditions:
+        - type: facility_role
+          value: ZAB:INS
   - id: 809905284277207050
     name: Senior Controller
     criteria:
@@ -211,6 +179,9 @@ roles:
     criteria:
       - conditions:
         - type: in_division
+          value: true
+      - conditions:
+        - type: division_visitor
           value: true
   - id: 806720140095520768
     name: Site Verified
