@@ -33,37 +33,21 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Extract metadata (tags, labels) for Docker (bot)
-        id: meta_bot
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
           images: vatusa/discord-bot-v3
 
-      - name: Build and push Docker image (bot)
+      - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
         with:
           context: .
           file: ./Dockerfile
           push: true
-          target: bot
-          tags: ${{ steps.meta_bot.outputs.tags }}
-          labels: ${{ steps.meta_bot.outputs.labels }}
-
-      - name: Extract metadata (tags, labels) for Docker (web)
-        id: meta_web
-        uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
-        with:
-          images: vatusa/discord-bot-v3-web-shim
-
-      - name: Build and push Docker image (web)
-        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
-        with:
-          context: .
-          file: ./Dockerfile
-          push: true
-          target: web
-          tags: ${{ steps.meta_web.outputs.tags }}
-          labels: ${{ steps.meta_web.outputs.labels }}
+          target: app
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
 
       - name: Update kustomization Version
         uses: jacobtomlinson/gha-find-replace@v3

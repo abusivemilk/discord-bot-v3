@@ -20,6 +20,7 @@ spec:
         - name: discord-bot-v3
           image: vatusa/discord-bot-v3
           imagePullPolicy: IfNotPresent
+          command: ["/app/bot"]
           envFrom:
             - secretRef:
                 name: discord-bot

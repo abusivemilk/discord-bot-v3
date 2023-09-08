@@ -8,13 +8,7 @@ COPY pkg ./pkg
 RUN go build -o bin/bot ./cmd/bot/main.go
 RUN go build -o bin/web ./cmd/web/main.go
 
-FROM alpine:latest AS bot
+FROM alpine:latest AS app
 WORKDIR /app
-COPY --from=build /go/src/github.com/VATUSA/discord-bot-v3/bin/bot ./
+COPY --from=build /go/src/github.com/VATUSA/discord-bot-v3/bin/* ./
 COPY config ./config
-CMD ["./bot"]
-
-FROM alpine:latest AS web
-WORKDIR /app
-COPY --from=build /go/src/github.com/VATUSA/discord-bot-v3/bin/web ./
-CMD ["./web"]

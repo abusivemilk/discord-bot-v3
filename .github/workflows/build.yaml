@@ -13,6 +13,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build image (bot)
-        run: docker build . --file Dockerfile --tag image --target bot
-      - name: Build image (web)
-        run: docker build . --file Dockerfile --tag image --target web
+        run: docker build . --file Dockerfile --tag image --target app

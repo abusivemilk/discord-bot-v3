@@ -7,5 +7,3 @@ resources:
 images:
   - name: vatusa/discord-bot-v3
     newTag: "1.0.34"
-  - name: vatusa/discord-bot-v3-web-shim
-    newTag: "1.0.34"
