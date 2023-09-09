@@ -52,11 +52,20 @@ func checkCriteria(c *api2.ControllerData, criteria *CriteriaConfig) bool {
 		return false
 	}
 	for _, cond := range criteria.Conditions {
-		if !checkCondition(c, cond.Type, cond.Value) {
+		if !checkConditionWithInvert(c, &cond) {
 			return false
 		}
 	}
 	return true
+}
+
+func checkConditionWithInvert(c *api2.ControllerData, cond *ConditionConfig) bool {
+	ret := checkCondition(c, cond.Type, cond.Value)
+	if cond.Invert {
+		return !ret
+	} else {
+		return ret
+	}
 }
 
 func checkCondition(c *api2.ControllerData, condType constants.ConditionType, value *string) bool {

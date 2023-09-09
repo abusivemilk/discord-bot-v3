@@ -32,8 +32,9 @@ type CriteriaConfig struct {
 }
 
 type ConditionConfig struct {
-	Type  constants.ConditionType `yaml:"type"`
-	Value *string                 `yaml:"value"`
+	Type   constants.ConditionType `yaml:"type"`
+	Value  *string                 `yaml:"value"`
+	Invert bool                    `yaml:"invert" default:"false"`
 }
 
 func LoadAllServerConfigOrPanic(configPath string) map[string]ServerConfig {

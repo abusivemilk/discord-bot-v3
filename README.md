@@ -40,6 +40,7 @@ rating: Short Rating (i.e. OBS or S3)
 ```
 
 condition_type options
+  The "invert" option reverses the condition, so that the opposite is applied
 
 | type             | value                              | description                                                                                   |
 |------------------|------------------------------------|-----------------------------------------------------------------------------------------------|
