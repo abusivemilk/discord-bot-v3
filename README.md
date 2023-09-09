@@ -21,6 +21,7 @@ roles:
       - conditions: # list of conditions, evaluated with AND
           - type: <see condition type options>
             value: <see condition type options>
+            invert: (Optional - defaults to false) <true/false>
 ```
 
 name_format_type options
